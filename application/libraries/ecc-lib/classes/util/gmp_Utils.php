@@ -38,7 +38,7 @@ class gmp_Utils {
 
     public static function gmp_random($n) {
         if (extension_loaded('gmp') && USE_EXT=='GMP') {
-            $random = gmp_strval(gmp_random());
+            $random = gmp_strval(gmp_random_bits(1280));
             $small_rand = mt_rand();
             while (gmp_cmp($random, $n) > 0) {
                 $random = gmp_div($random, $small_rand, GMP_ROUND_ZERO);
